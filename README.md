@@ -1,4 +1,5 @@
 # web-scraping-challenge
+(see Mission to Mars_final.pdf for a look at the final webpage)
 # **Mission to Mars**
 This program scrapes mars data from the following websites:
 - Nasa mars news
