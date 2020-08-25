@@ -1,7 +1,5 @@
-# web-scraping-challenge
-(see Mission to Mars_final.pdf for a look at the final webpage)
 # **Mission to Mars**
-This program scrapes mars data from the following websites:
+This program scrapes mars data from the following websites in order to create a fact sheet with Mars images as a local web page.
 - Nasa mars news
 - Jet Propulsion Labs
 - Twitter account with Mars weather
@@ -18,3 +16,5 @@ This program scrapes mars data from the following websites:
 
 # ***Database:***
 - MongoDB - Database is called mission_to_mars, Collection is called mars_info
+
+# ***Final Result: ***
