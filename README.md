@@ -18,5 +18,6 @@ This program scrapes mars data from the following websites in order to create a 
 - MongoDB - Database is called mission_to_mars, Collection is called mars_info
 
 # ***Final Result:***
-![Mars Page 1](Mission to Mars_final-page1.jpg)
-![Mars Page 2](Mission to Mars_final-page2.jpg)
+<img src="url/relativePath">
+![Mars Page 1]<img src="Mission to Mars_final-page1.jpg">
+![Mars Page 2]<img src="Mission to Mars_final-page2.jpg">
