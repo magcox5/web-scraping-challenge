@@ -7,7 +7,7 @@ This program scrapes Mars data from the following websites in order to create a 
 - USGS Astrogeology site for images of Mars' Hemispheres
 
 # ***Files:***
-(Written in python)
+(Written in python, uses chromedrive.exe)
 - app.py is the flask application server
 - scrape_mars.py is the file converted from the jupyter notebook to scrape the data
 - mission_to_mars.ipynb is the jupyter notebook
