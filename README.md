@@ -1,6 +1,6 @@
 # **Mission to Mars**
-This program scrapes mars data from the following websites in order to create a fact sheet with Mars images as a local web page.
-- Nasa mars news
+This program scrapes Mars data from the following websites in order to create a fact sheet with Mars images as a local web page.
+- Nasa Mars news
 - Jet Propulsion Labs
 - Twitter account with Mars weather
 - Mars Facts
