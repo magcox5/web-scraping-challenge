@@ -53,6 +53,7 @@ def scrape():
     # Create BeautifulSoup object; parse with 'html.parser'
     soup = bs(response.text, 'html.parser')
     result_tweet = soup.find('div', class_="js-tweet-text-container")
+    #result_tweet = soup.find('span', class_="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0")
     mars_weather = result_tweet.text
     # Remove first word and last item in tweet
     start_pos = mars_weather.find(' ') + 1
@@ -141,9 +142,3 @@ def insert_mars_data(mars_dict):
 
     # Creates a collection in the database and inserts two documents
     db.mars_info.insert_one(mars_dict)
-
-#mars_data = scrape()
-#insert_mars_data(mars_data)
-
-#if __name__ == '__main__':
-#    scrape_mars.run(debug=True)
