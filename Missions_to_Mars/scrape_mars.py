@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup as bs
 import requests
 from splinter import Browser
 import re
+import config
+import tweepy
 
 def scrape():
     # initialize chrome driver
@@ -46,22 +48,33 @@ def scrape():
 
 
     # Task 3:   Mars weather (twitter)
+    # NOTE:  Twitter blocks scraping text, so went to their api instead...
     # URL of page to be scraped
-    url = 'https://twitter.com/marswxreport?lang=en'
-    # Retrieve page with the requests module
-    response = requests.get(url)
-    # Create BeautifulSoup object; parse with 'html.parser'
-    soup = bs(response.text, 'html.parser')
-    #result_tweet = soup.find('div', class_="js-tweet-text-container")
-    result_tweet = soup.find('span')
-    mars_weather = result_tweet.text
-    # Remove first word and last item in tweet
-    start_pos = mars_weather.find(' ') + 1
-    end_pos = mars_weather.rfind(' ')
-    mars_weather = mars_weather[start_pos:end_pos]
-    print(mars_weather)
+    # url = 'https://twitter.com/marswxreport?lang=en'
+    # Mars weather (twitter)
+
+    # Authentication - Twitter API Credentials
+    consumer_key = config.twitter_consumer_key
+    consumer_secret = config.twitter_consumer_secret
+    access_key = config.twitter_access_token
+    access_secret = config.twitter_access_secret
+    # name of Mars weather Twitter Account
+    screen_name = "marswxreport"
+
+    #authorize twitter, initialize tweepy
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_key, access_secret)
+    api = tweepy.API(auth)
+
+    #make request for most recent tweet
+    new_tweet = api.user_timeline(screen_name = screen_name,count=1, tweet_mode="extended")
+
+    #transform the tweepy tweets into a 2D array that will populate the csv 
+    out_tweet = [[tweet.full_text.encode("utf-8")] for tweet in new_tweet]
+    out_tweet_final = out_tweet[0][0].decode("utf-8")  
+    print(out_tweet_final)
     # add mars weather to dictionary
-    mars_dictionary['mars_weather'] = mars_weather
+    mars_dictionary['mars_weather'] = out_tweet_final
 
     # Task 4:   Mars Facts
     # Mars facts
